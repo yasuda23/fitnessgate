@@ -74,3 +74,10 @@ end
 group :production do
   gem 'pg'
 end
+
+gem 'pry-rails'
+
+gem 'devise'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
