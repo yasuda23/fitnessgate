@@ -11,6 +11,38 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="container">
+        <h1>FitnessGate</h1>
+        <nav>
+          <ul>
+            <% if user_signed_in? %>
+            <li><%= current_user.email  %></li>
+              <% end %>
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Profile', '#' %></li>
+            <li><%= link_to 'New Post', new_post_path %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete} %></li>
+            <% else %>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 FitnessGate. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
