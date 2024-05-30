@@ -7,5 +7,8 @@
   <% end %>
   <p>投稿日時: <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
   <h3><%= @post.user.email %></h3>
-  <%= link_to 'この投稿を削除する', @post, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+  <% if user_signed_in? && current_user == @post.user %>
+  <%= link_to '編集する', edit_post_path, class: "btn btn-primary" %>
+  <%= link_to '削除する', @post, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+  <% end %>
 </div>
