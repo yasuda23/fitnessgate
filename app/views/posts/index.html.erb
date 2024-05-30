@@ -20,9 +20,11 @@
       </div>
     <% end %>
 <% else %>
-  <p>投稿してください！！</p>
+  <h1>投稿してください！！</h1>
 <% end %>
 <% if user_signed_in? %>
-  <%= link_to '新しく投稿する', new_post_path, class: "btn btn-primary" %>
+  <h2>
+    <%= link_to '新しく投稿する', new_post_path, class: "btn btn-primary" %>
+  </h2>
 <% end %>
 </div>
