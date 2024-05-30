@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= 'home-background' if current_page?(root_path) %>">
     <header>
       <div class="container">
         <h1>FitnessGate</h1>
@@ -39,7 +39,7 @@
       </div>
     </main>
 
-    <footer>
+    <footer class="fixed-footer">
       <div class="container">
         <p>&copy; 2024 FitnessGate. All rights reserved.</p>
       </div>

@@ -87,3 +87,30 @@ footer p {
   max-height: 300px; 
   
 }
+
+.home-background {
+  background-image: url('training_image_with_mascot.png');
+  background-size: cover; /* 画像を画面全体に拡大 */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-attachment: fixed; /* 背景画像を固定 */
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 上に薄い影を追加 */
+  z-index: 1000; /* 他の要素より前に表示されるように */
+  padding: 10px 20px; /* パディングを追加 */
+}
+
+.fixed-footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  font-weight: bold;
+  font-size: 20px;
+}
