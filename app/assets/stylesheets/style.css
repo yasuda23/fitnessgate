@@ -76,3 +76,14 @@ footer {
 footer p {
   margin: 0;
 }
+
+.post-card {
+  margin-bottom: 30px; 
+}
+
+.post-image {
+  max-width: 100%; 
+  height: auto;   
+  max-height: 300px; 
+  
+}

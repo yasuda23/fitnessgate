@@ -3,11 +3,11 @@
 <% if @posts.any? %>
   <div class="row">
     <% @posts.each do |post| %>
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-4 post-card ">
         <div class="card h-100">
           <h2></h2>
           <% if post.image.attached? %>
-            <%= image_tag post.image, class: "card-img-top", size: "300x300" %>
+            <%= image_tag post.image, class: "card-img-top post-image" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= link_to post.title, post %></h5>
@@ -23,5 +23,6 @@
 <% else %>
   <p>投稿してください！！</p>
 <% end %>
-
+<% if user_signed_in? %>
 <%= link_to 'New Post', new_post_path, class: "btn btn-primary" if user_signed_in? %>
+<% end %>
