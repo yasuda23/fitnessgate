@@ -114,3 +114,16 @@ footer p {
   font-weight: bold;
   font-size: 20px;
 }
+
+.card-title{
+  color: black;
+}
+
+.container a:hover {
+  color: red; 
+}
+
+
+.top1{
+  color: white;
+}
