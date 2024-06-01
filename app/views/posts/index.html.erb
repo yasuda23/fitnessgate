@@ -4,7 +4,7 @@
   <div class="row">
     <% @posts.each do |post| %>
       <div class="col-md-4 mb-4 post-card ">
-        <div class="card h-100">
+        <div class="card h-100 shadow">
           <h3>
           <% if post.image.attached? %>
             <%= image_tag post.image, class: "card-img-top post-image" %>
