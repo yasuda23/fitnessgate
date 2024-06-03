@@ -1,12 +1,12 @@
 <h1>Show</h1>
 <div class="post">
   <%# <h3><%= link_to @post.user.profile.username, profile_path(@post.user.profile) %></h3> 
-  <h4><%= @post.workout_details %></h4>
+  <h1><%= @post.workout_details %></h1>
   <% if @post.image.attached? %>
     <img src="<%= url_for(@post.image) %>" alt="Post Image" class="img-fluid post-image">
   <% end %>
   <h4>投稿日時: <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h4>
-  <h4>投稿者: <%= @post.user.email %></h4>
+  <h4>投稿者: <%= @post.user.username %></h4>
   <% if user_signed_in? && current_user == @post.user %>
   <%= link_to '編集する', edit_post_path, class: "btn btn-primary" %>
   <%= link_to '削除する', @post, data: { turbo_method: :delete }, class: "btn btn-danger" %>
@@ -27,7 +27,7 @@
       <% @post.comments.each do |comment| %>
         <p>
           <% if comment.user.present? %>      
-          <strong><%= link_to comment.user.email, user_path(comment.user) %>：</strong>
+          <strong><%= link_to comment.user.username, profile_path(comment.user) %>：</strong>
          <%= comment.content %>
           <% end %>
         </p>

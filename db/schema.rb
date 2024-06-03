@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_30_101030) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_03_052245) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,14 +52,23 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_30_101030) do
   create_table "posts", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "workout_details", null: false
-    t.text "image_url"
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "profiles", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "goal"
+    t.string "username", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
+    t.string "username", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -76,4 +85,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_30_101030) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
 end

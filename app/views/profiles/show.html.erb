@@ -1,4 +1,9 @@
-<h2>Profile</h2>
-<p>Username: <%= @profile.username %></p>
-<p>Goal: <%= @profile.goal %></p>
-<%= link_to 'Edit Profile', edit_profile_path %>
+<h1>Profile</h1>
+
+  <p><%= @profile.goal %></p>
+
+  <% if @profile.user == current_user %>
+    <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+  <% end %>
+<% else %>
+  <p><%= link_to 'create a profile', profile_path %>.</p>

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all .order("created_at DESC")
@@ -43,8 +44,15 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
+  private
+
   def post_params
-    params.require(:post).permit(:title, :workout_details, :image_url, :image )
+    params.require(:post).permit(:title, :workout_details, :image )
   end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
 
 end
