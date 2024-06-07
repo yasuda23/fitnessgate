@@ -5,7 +5,7 @@
   <% if @post.image.attached? %>
     <img src="<%= url_for(@post.image) %>" alt="Post Image" class="img-fluid post-image">
   <% end %>
-  <h4>投稿日時: <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h4>
+  <h4>投稿日時: <%= l @post.created_at %></h4>
   <h4>投稿者: <%= @post.user.username %></h4>
   <% if user_signed_in? && current_user == @post.user %>
   <%= link_to '編集する', edit_post_path, class: "btn btn-primary" %>
